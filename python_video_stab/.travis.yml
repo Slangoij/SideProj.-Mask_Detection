@@ -1,0 +1,14 @@
+language: python
+python:
+  - "3.6"
+cache: pip
+install:
+  - pip install .
+  - pip install opencv-contrib-python
+  - pip install --upgrade pytest
+  - pip install pytest pytest-cov
+  - pip install codecov
+script:
+  - pytest --cov=vidstab --cov-report term-missing tests/
+after_success:
+  - codecov

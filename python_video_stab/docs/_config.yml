@@ -1,0 +1,5 @@
+theme: jekyll-theme-leap-day
+title: vidstab
+logo: https://s3.amazonaws.com/python-vidstab/readme/vidstab_logo.png
+show_downloads: true
+google_analytics: UA-93461459-1
