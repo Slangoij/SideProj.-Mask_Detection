@@ -10,8 +10,8 @@ import skvideo.io
 ```
 
 ## face detector & landmark predictor
-- 마스크를 씌우기 위해 사람의 얼굴 인식 face detector
-- 마스크 위치와 기울기를 지정하기 위한 landmark predictor
+- 마스크를 씌우기 위해 사람의 얼굴 인식 : face detector
+- 마스크 위치와 기울기를 지정하기 위한 : landmark predictor
 
 
 ```python
