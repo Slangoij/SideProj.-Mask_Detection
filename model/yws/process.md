@@ -52,7 +52,7 @@ import random
     /content/drive/MyDrive/mask_detector
     
 
-# train, test dataset 나누기
+# train, validation, test dataset 나누기
 
 
 ```python
@@ -80,11 +80,7 @@ image_path
 
 
 
-```python
-# 이미지 압축 풀기
-!unzip -q without_mask600.zip -d /content/drive/MyDrive/mask_detector/images
-!unzip -q with_mask600.zip -d /content/drive/MyDrive/mask_detector/images
-```
+
 
 
 ```python
@@ -119,6 +115,12 @@ def split_move_image(data_path):
 
 
 ```python
+# 이미지 압축 풀기
+!unzip -q without_mask600.zip -d /content/drive/MyDrive/mask_detector/images
+split_move_image(image_path, train_path, test_path, validation_path)
+```
+```python
+!unzip -q with_mask600.zip -d /content/drive/MyDrive/mask_detector/images
 split_move_image(image_path, train_path, test_path, validation_path)
 ```
 
