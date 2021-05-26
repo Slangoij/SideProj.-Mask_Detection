@@ -7,7 +7,7 @@
 ![MaskDetectionProject](./image/Mask_Detection_Project.JPG)
 - UML
 - 예상되는 결과물
-![MaskDetectionPrototype](./image/Mask_detection_prototype.jpg)
+![MaskDetectionPrototype](./image/Mask_detection_prototype.JPG)
 
 ## Check Point
 - [ ] 본인이 진행해 본 프로젝트를 떠올리며 몇 개에 해당하는지 체크해봅시다.   
