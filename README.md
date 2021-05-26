@@ -5,8 +5,8 @@
  ![KakaoTalk_20210520_135220786](https://user-images.githubusercontent.com/71580318/119225484-053ab780-bb3f-11eb-91ca-2f40da12e692.jpg)
 - 프로젝트 순서
 ![MaskDetectionProject](./image/Mask_Detection_Project.JPG)
-- UML
-- 예상되는 결과물
+- UML<br>
+- 예상되는 결과물<br>
 ![MaskDetectionPrototype](./image/Mask_detection_prototype.JPG)
 
 ## Check Point
