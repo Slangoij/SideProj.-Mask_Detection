@@ -9,5 +9,4 @@ function startVideo() {
         stream => video.srcObject = stream,
         err => console.error(err)
     )
-
 }

@@ -10,4 +10,6 @@ app_name = "detect"
 urlpatterns = [
     path("",views.home, name='home'),
     path("test/", views.test, name='test'),
+    path('temp/', views.temp, name='temp'),
+    # path("cantoimg/", views.canvasToImage, name='cantoimg'),
 ]
