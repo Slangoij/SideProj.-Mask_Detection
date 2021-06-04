@@ -19,7 +19,7 @@ $(function(){
             //ajax통신
             $.ajax({
                 type: 'POST',
-                url: '{% url "detect:temp" %}',
+                url: '/detect/temp/',
                 data: {data:data},
                 success: function(result) {
                     var filename = result['filename'];

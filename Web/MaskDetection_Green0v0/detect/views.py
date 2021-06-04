@@ -22,15 +22,13 @@ def test(request):
 
 @csrf_exempt
 def temp(request):
-    print("="*30)
-    print(request)
-
     data = request.POST.__getitem__('data')
+    # print(data)
     data = data[22:]  # 앞의 'data:image/png;base64' 부분 제거
-    number = random.rand(1,10000) # 동시에 다른 사용자가 접근시 최대한 중복을 막기
+    number = random.randrange(1,10000) # 동시에 다른 사용자가 접근시 최대한 중복을 막기
 
     # 저장할 경로 및 파일명을 지정
-    path = str(os.path.join(settings.STATIC_ROOT, 'image/'))
+    path = str(os.path.join(settings.STATIC_ROOT, 'image'))
     filename = 'image' + str(number) + '.png'
 
     # 바이너리 쓰기'wb'모드로 파일 open
@@ -43,6 +41,7 @@ def temp(request):
     answer = {'filename':filename}
     print('디코딩 완료')
     # return render(request, "detect/test.html")
+    return JsonResponse(answer)
 
 
 # # canvas 이미지 저장
