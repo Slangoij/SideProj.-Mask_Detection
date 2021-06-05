@@ -21,6 +21,16 @@
     </style>
 </head>
 <body>
-    <video id="video" width="720" height="560" autoplay muted></video>
+    <div id='screenshot'>
+        <video id="video" width="720" height="560" autoplay muted></video>
+        <canvas id='canvas' width='720' height='560'></canvas> 
+    </div>
+    <script src='https://code.jquery.com/jquery-2.2.1.min.js'></script>
+    <script src='https://html2canvas.hertzen.com/dist/html2canvas.js'></script>
+    <script src="/static/js/html2canvas.js"></script>
+    {# data 변환 및 view에 전송 #}
+    <form>
+        <button type="button" id="save">캡처</button>
+    </form>
 </body>
 </html>
