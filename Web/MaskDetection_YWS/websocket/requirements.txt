@@ -10,3 +10,4 @@ uvicorn==0.11.3
 websockets==8.1
 tensorflow
 jinja2
+cvlib
