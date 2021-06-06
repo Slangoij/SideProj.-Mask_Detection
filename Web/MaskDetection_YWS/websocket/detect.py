@@ -3,20 +3,27 @@ from tensorflow.keras.models import load_model
 import numpy as np
 import cv2
 
+facenet = cv2.dnn.readNet('./models/deploy.prototxt', './models/res10_300x300_ssd_iter_140000.caffemodel')
+model = load_model('./models/mask_detector')
+
 def mask_detector(img):
-    facenet = cv2.dnn.readNet('./models/deploy.prototxt', './models/res10_300x300_ssd_iter_140000.caffemodel')
-    model = load_model('./models/mask_detector')
+    global facenet
+    global model
+    
     h, w = img.shape[:2]
     blob = cv2.dnn.blobFromImage(img, scalefactor=1., size=(300,  300), mean=(104.,  177., 123.))
     facenet.setInput(blob)
     detections = facenet.forward()
 
-    confidence = detections[0, 0, 0, 2]
-    if confidence < 0.5:
-        x1 = int(detections[0, 0, 0, 3] * w)
-        y1 = int(detections[0, 0, 0, 4] * h)
-        x2 = int(detections[0, 0, 0, 5] * w)
-        y2 = int(detections[0, 0, 0, 6] * h)
+    for i in range(detections.shape[2]):
+        confidence = detections[0, 0, i, 2]
+        if confidence < 0.5:
+            continue
+        
+        x1 = int(detections[0, 0, i, 3] * w)
+        y1 = int(detections[0, 0, i, 4] * h)
+        x2 = int(detections[0, 0, i, 5] * w)
+        y2 = int(detections[0, 0, i, 6] * h)
 
         face = img[y1:y2, x1:x2]
 
