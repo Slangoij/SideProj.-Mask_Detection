@@ -1,5 +1,5 @@
 from starlette.responses import HTMLResponse
-from fastapi import FastAPI
+from starlette.applications import Starlette
 from jinja2 import Template
 
 from server_processing import img_processer
@@ -50,7 +50,7 @@ template = """\
 </html>
 """
 
-app = FastAPI()
+app = Starlette()
 
 @app.route('/')
 async def homepage(request):
