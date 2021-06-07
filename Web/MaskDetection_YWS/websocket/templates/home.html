@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Streamer</title>
+</head>
+<body>
+    <video autoplay hidden=true></video>
+    <img src="">
+    <script type = "text/javascript">
+    
+        const video = document.querySelector('video');
+        const img = document.querySelector('img');
+        navigator.mediaDevices.getUserMedia({video: {width: 426, height: 240}}).then((stream) => video.srcObject = stream);
+
+        const getFrame = () => {
+            const canvas = document.createElement('canvas');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            canvas.getContext('2d').drawImage(video, 0, 0);
+            const data = canvas.toDataURL('image/png');
+            return data;
+        }
+
+        const WS_URL = 'ws://localhost:8000/ws';   // <<<<<<< 이 부분 port번호 맞추기
+        const FPS = 3;
+        const ws = new WebSocket(WS_URL);
+
+        ws.onopen = () => {
+            console.log(`Connected to ${WS_URL}`);
+            setInterval(() => {
+                ws.send(getFrame());
+            }, 1000 / FPS);
+        }
+
+        ws.onmessage = message => {
+            // set the base64 string to the src tag of the image
+            img.src = message.data;
+            console.log(img.src)
+        }
+    </script>
+</body>
+</html>
