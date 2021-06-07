@@ -12,7 +12,7 @@ template = """\
     <title>Streamer</title>
 </head>
 <body>
-    <video autoplay></video>
+    <video autoplay hidden=true></video>
     <img src="">
     <script type = "text/javascript">
     

@@ -28,9 +28,9 @@ def img_processer(data):
         img = from_b64(data) #     <<<< 이미지 받기
         # Do some OpenCV Processing
         # img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) # <<<< client에서 보낸 img 처리
-        img = mask_detector(img) #                 <<<< client에서 보낸 img에 예측한거 그리기
+        img, result = mask_detector(img) #                 <<<< client에서 보낸 img에 예측한거 그리기
         # End for OpenCV Processing
-        
+        # print(result)
         return to_b64(img) #       <<<<<< 이미지 보내기
     except:
         # just in case some process is failed

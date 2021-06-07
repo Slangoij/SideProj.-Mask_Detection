@@ -8,8 +8,9 @@ import cv2
 model = load_model('./models/mask_detector.h5')
 
 def mask_detector(img):
+
     global model
-    
+    total_cnt, nomask_cnt = 0, 0
     faces, confidences = cv.detect_face(img)
 
     for i, face in enumerate(faces):
@@ -34,8 +35,10 @@ def mask_detector(img):
         else:
             color = (0, 0, 255)
             label = "No Mask {:.2f}".format(nomask * 100)
-        
+            nomask_cnt += 1
+        total_cnt += 1
         cv2.rectangle(img, pt1=(x1, y1), pt2=(x2, y2), color=color, lineType=cv2.LINE_AA)
         cv2.putText(img, text=label, org=(x1, y1 - 10), fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=0.8, color=color, thickness=2, lineType=cv2.LINE_AA)
-
-        return img
+    result = (total_cnt / nomask_cnt) * 100
+    
+    return img, result
