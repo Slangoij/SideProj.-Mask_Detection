@@ -27,11 +27,12 @@ def img_processer(data):
     try:
         img = from_b64(data) #     <<<< 이미지 받기
         # Do some OpenCV Processing
-        img, result = mask_detector(img) #                 <<<< client에서 보낸 img에 예측한거 그리기
+        img, result = mask_detector(img) #           <<<< client에서 보낸 img에 예측한거 그리기
         # End for OpenCV Processing
-        return to_b64(img) #       <<<<<< 이미지 보내기
+        # print(to_b64(img)[:10] +  '{03d}'.format(result))
+        return to_b64(img) + '%3s' % result #       <<<<<< 이미지 보내기
     except:
         # just in case some process is failed
         # normally, for first connection
         # return the original data
-        return data
+        return data # + '000'
