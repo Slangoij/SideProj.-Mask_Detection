@@ -42,7 +42,11 @@ def mask_detector(img):
         
     result = (nomask_cnt / total_cnt) * 100
     # print(result)
-    if not result:
+            
+    if total_cnt != 0:
+        result = int(nomask_cnt/total_cnt) * 100
+        result = str(result).zfill(3)
+    else:
         result = '000'
     
     return img, result
