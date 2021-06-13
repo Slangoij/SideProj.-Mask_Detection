@@ -41,7 +41,7 @@ def mask_detector(img):
         cv2.putText(img, text=label, org=(x1, y1 - 10), fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=0.8, color=color, thickness=2, lineType=cv2.LINE_AA)
 
     if total_cnt != 0:
-        result = int(nomask_cnt/total_cnt) * 100
+        result = int(nomask_cnt/total_cnt * 100)
         result = str(result).zfill(3)
     else:
         result = '000'
