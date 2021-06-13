@@ -21,7 +21,25 @@
 	<!--Fonts-->
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
-
+	<style>
+		#myProgress {
+			position: relative;
+			width: 100%;
+			height: 30px;
+			background-color: grey;
+		}
+		#myBar {
+			position: absolute;
+			width: 0%;
+			height: 100%;
+			background-color: rgb(227, 78, 78);
+		}
+		#label {
+			text-align: center; /* If you want to center it */
+			line-height: 30px; /* Set the line-height to the same as the height of the progress bar container, to center it vertically */
+			color: white;
+		}
+	</style>
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -69,61 +87,23 @@
 							<h1>MASK DETECT</h1>
 							<span class="type-meta"><i class="fa fa-user"></i> IJ&Green&WS </span>
 							<span class="type-meta"><i class="fa fa-tag"></i> <a href="https://github.com/Slangoij/SideProj.-Mask_Detection">github</a></span>
-
-
-
-			<!-- <<<<<<<<<<<<<<<   여기!!! video-frame 있어요!! >>>>>>>>>>>>>>>>>>>>>>> -->
-							
 							<div class="video-frame">
-								<video autoplay hidden=true width="500" height="400"></video>
+								<video autoplay controls hidden=true width="500" height="400" id='vd'></video>
 								<img src="assets/img/mask.png" width="100%">
-								<script type="text/javascript" src="assets/js/mask_detect.js"></script>
 							</div>
-
-			<!-- ######################################################################### -->
-
-
-
-							<p>Launch will enable you be in run  your own crowdfunding campaign, and be in complete control from concept to crowdfunding to launch.</p>
-							<h2>0%</h2>							
-							<span class="contribution">위험도</span>
-
-
-
-		<!-- <<<<<<<<<<<<<<<   여기!!! progress bar 있어요!! >>>>>>>>>>>>>>>>>>>>>>> -->
-
+							<p>서비스 이용을 원하신다면 아래의 버튼을 눌러주세요</p>
+							<h2>Danger Rate</h2>
 							<div id="myProgress">
 								<div id="myBar">
-									<div id="label">10%</div>
+									<div id="label">0%</div>
 								</div>
 							</div> 
-							<style>
-								#myProgress {
-									position: relative;
-									width: 100%;
-									height: 30px;
-									background-color: grey;
-								}
-								#myBar {
-									position: absolute;
-									width: 1%;
-									height: 100%;
-									background-color: red;
-								}
-								#label {
-									text-align: center; /* If you want to center it */
-									line-height: 30px; /* Set the line-height to the same as the height of the progress bar container, to center it vertically */
-									color: white;
-								}
-							</style>
-
-			<!-- ######################################################################### -->
-
-
-							<span class="goal-progress"><strong>인원수</strong> 인식한 사람 수 </span>
 						</div>
-						<span class="count-down"><strong>마스크 안쓴 사람</strong> 마스크 안쓴 사람 수</span>
-						<a href="http://ncov.mohw.go.kr/bdBoardList_Real.do" class="btn btn-launch">코로나 현황</a>
+						<br>
+							<!-- <span class="goal-progress"><strong>인원수</strong> 인식한 사람 수 </span> -->
+						<span class="count-down"><strong>마스크 착용을 생활화 합시다</strong></span>
+						<!-- <a href="http://ncov.mohw.go.kr/bdBoardList_Real.do" class="btn btn-launch">코로나 현황</a> -->
+						<button class="btn btn-launch" onclick='startVideo()'> detect start </button>
 					</div>
 				<!--/main content-->
 			</div>
@@ -141,6 +121,7 @@
 	<!-- Global jQuery -->
 	<script type="text/javascript" src="assets/js/jquery-1.12.3.min.js"></script>
 	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/mask_detect.js"></script>
 	<!-- Template JS -->
 	<script type="text/javascript" src="assets/js/main.js"></script>
 </body>
