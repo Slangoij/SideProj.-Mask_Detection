@@ -30,7 +30,6 @@
             </div>
         </div>
     </div> -->
-
     <style>
         #myProgress {
             position: relative;
@@ -88,9 +87,11 @@
             // 프로그래스바=>myBar
             var elem = document.getElementById("myBar");
 
-            elem.style.width = mess.substring(mess.length-3) + '%';
-            
             dangerRate = mess.substring(mess.length-3)
+            elem.style.width = dangerRate + '%';
+            document.getElementById("label").innerHTML = dangerRate * 1  + '%';
+            
+            // 추가로 그래프에 따른 색상 변경 추가
             // if (dangerRate > 80) {
             //     elem.style.background = red
             // }elseif (dangerRage > 50) {
@@ -99,7 +100,6 @@
             // else {
 
             // }
-            document.getElementById("label").innerHTML = dangerRate * 1  + '%';
         }
 
         /*
