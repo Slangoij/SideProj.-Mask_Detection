@@ -1,12 +1,9 @@
 ```python
-import dlib, os, cv2
-import pandas as pd
-import numpy as np
-import keras, sys
 from keras.models import Model, load_model
 from math import atan2, degrees
-import imutils
-import skvideo.io
+import dlib, cv2, keras, sys, os,
+import pandas as pd
+import numpy as np
 ```
 
 ## face detector & landmark predictor
@@ -21,13 +18,11 @@ predictor = dlib.shape_predictor("./model/shape_predictor_68_face_landmarks.dat"
 
 - mask 이미지를 PNG로 4차원으로 받기 위한 cv2.IMREAD_UNCHANGED 사용
 
-
 ```python
 mask = cv2.imread('./bluemask.png',cv2.IMREAD_UNCHANGED)
 ```
 
 ### Path
-
 
 ```python
 base_path = './test_img/'
@@ -42,7 +37,7 @@ file_list = sorted(os.listdir(base_path))
 ```python
 def overlay_transparent(background_img, img_to_overlay_t, x, y, overlay_size=None):
     bg_img = background_img.copy()
-    # convert 3 channels to 4 channels
+    # BGR채널에 Alpha 채널까지!
     if bg_img.shape[2] == 3:
         bg_img = cv2.cvtColor(bg_img, cv2.COLOR_BGR2BGRA)
 
@@ -61,7 +56,7 @@ def overlay_transparent(background_img, img_to_overlay_t, x, y, overlay_size=Non
 
     bg_img[int(y - h / 2):int(y + h / 2), int(x - w / 2):int(x + w / 2)] = cv2.add(img1_bg, img2_fg)
 
-    # convert 4 channels to 4 channels
+    # 다시 BGR채널로!
     bg_img = cv2.cvtColor(bg_img, cv2.COLOR_BGRA2BGR)
 
     return bg_img
