@@ -220,7 +220,7 @@ model.add(layers.BatchNormalization())
 model.add(layers.ReLU())
 model.add(layers.Dropout(rate=0.5))
 
-model.add(layers.Dense(1, activation='sigmoid'))
+model.add(layers.Dense(2, activation='softmax'))
 ```
 
 
